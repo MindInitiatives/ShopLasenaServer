@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "404370318948",
+    "firebase_url": "https://shoplasenaserver.firebaseio.com",
+    "project_id": "shoplasenaserver",
+    "storage_bucket": "shoplasenaserver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404370318948:android:cffe8f32c2e570df",
+        "android_client_info": {
+          "package_name": "com.mindinitiatives.shoplasenaserver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404370318948-dg5qutgjrdkrtiroqe95o3ne518gkjqh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mindinitiatives.shoplasenaserver",
+            "certificate_hash": "6feb902b6301eda8e68394b8a07ad19178570e2a"
+          }
+        },
+        {
+          "client_id": "404370318948-4f6lm8e2fr7la13jsf72jkis9227ha3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa1izqpGTp9SG1tWWK3KRaC7LU7QdKaxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404370318948-4f6lm8e2fr7la13jsf72jkis9227ha3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

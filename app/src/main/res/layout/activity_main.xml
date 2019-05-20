@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_app"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/wlcLayt"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/shoplasena"
+            android:layout_width="200dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/txtSlogan"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/slogan"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
+       <LinearLayout
+        android:id="@+id/btnLayout"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+                <info.hoang8f.widget.FButton
+            android:id="@+id/btnSignIn"
+            android:text="@string/app_sign_in"
+            android:textColor="@android:color/white"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textAllCaps="true"
+            app:fButtonColor="@color/fbutton_color_wet_asphalt"
+            app:shadowColor="@android:color/black"
+            app:shadowEnabled="true"
+            app:shadowHeight="5dp"
+            app:cornerRadius="1dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
