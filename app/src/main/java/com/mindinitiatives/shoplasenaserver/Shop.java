@@ -21,12 +21,16 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.mindinitiatives.shoplasenaserver.Common.Common;
+import com.mindinitiatives.shoplasenaserver.Model.Category;
+import com.mindinitiatives.shoplasenaserver.ViewHolder.MenuViewHolder;
+import com.squareup.picasso.Picasso;
 
 public class Shop extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseDatabase database;
     DatabaseReference category;
+    FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
 
     TextView txtFullName;
 
@@ -43,7 +47,12 @@ public class Shop extends AppCompatActivity
         ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout)).setTitle("Store Management");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Menu Management");
         setSupportActionBar(toolbar);
+
+        //Init Firebase
+        database = FirebaseDatabase.getInstance();
+        category = database.getReference("Category");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,13 +77,36 @@ public class Shop extends AppCompatActivity
         txtFullName = (TextView)headerView.findViewById(R.id.txtFullName);
         txtFullName.setText(Common.currentUser.getName());
 
-        //Load menu
+        //Init View
         recyler_menu = (RecyclerView)findViewById(R.id.recycler_menu);
         recyler_menu.setHasFixedSize(false);
         layoutManager = new LinearLayoutManager(this);
         recyler_menu.setLayoutManager(layoutManager);
+        
+        loadMenu();
 
 
+    }
+
+    private void loadMenu() {
+        adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(
+                Category.class,
+                R.layout.menu_item,
+                MenuViewHolder.class,
+                category
+
+        ) {
+            @Override
+            protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
+                viewHolder.txtMenuName.setText(model.getName());
+                Picasso.with(Shop.this).load(model.getImage())
+                        .into(viewHolder.imageView);
+
+            }
+        };
+
+        adapter.notifyDataSetChanged(); //to refresh data if data has changed
+        recyler_menu.setAdapter(adapter);
     }
 
     @Override

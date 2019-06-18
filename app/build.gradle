@@ -40,6 +40,8 @@ dependencies {
     implementation('com.github.jd-alexander:android-flat-button:v1.1')
     implementation 'com.google.firebase:firebase-appindexing:10.2.0'
     implementation 'com.google.firebase:firebase-core:10.2.0'
+    implementation 'com.google.firebase:firebase-storage:10.2.0'
+    implementation 'com.google.firebase:firebase-auth:10.2.0'
     implementation 'com.google.firebase:firebase-database:10.2.0'
     implementation 'com.firebaseui:firebase-ui-database:1.2.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
