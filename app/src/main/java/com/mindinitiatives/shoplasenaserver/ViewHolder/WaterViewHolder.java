@@ -13,7 +13,7 @@ import com.mindinitiatives.shoplasenaserver.Interface.ItemClickListener;
 import com.mindinitiatives.shoplasenaserver.R;
 
 
-public class MenuViewHolder extends RecyclerView.ViewHolder implements
+public class WaterViewHolder extends RecyclerView.ViewHolder implements
         View.OnClickListener, View.OnCreateContextMenuListener {
 
     public TextView txtMenuName;
@@ -21,11 +21,11 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements
 
     private ItemClickListener itemClickListener;
 
-    public MenuViewHolder(@NonNull View itemView) {
+    public WaterViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        txtMenuName = itemView.findViewById(R.id.menu_name);
-        imageView  = itemView.findViewById(R.id.menu_image);
+        txtMenuName = itemView.findViewById(R.id.water_name);
+        imageView = itemView.findViewById(R.id.water_image);
 
         itemView.setOnCreateContextMenuListener(this);
         itemView.setOnClickListener(this);
@@ -38,7 +38,7 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onClick(View view) {
-        itemClickListener.onClick(view,getAdapterPosition(),false);
+        itemClickListener.onClick(view, getAdapterPosition(), false);
 
     }
 
