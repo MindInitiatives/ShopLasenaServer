@@ -45,13 +45,16 @@ import com.squareup.picasso.Picasso;
 import java.util.UUID;
 
 import info.hoang8f.widget.FButton;
+import io.paperdb.Paper;
+
+import static com.mindinitiatives.shoplasenaserver.Common.Common.PICK_IMAGE_REQUEST;
 
 public class Shop extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseDatabase database;
     DatabaseReference category;
-    private final int PICK_IMAGE_REQUEST = 71;
+
     FirebaseStorage storage;
     FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
 
@@ -302,6 +305,41 @@ public class Shop extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id == R.id.shop) {
+            // Handle the products page
+            Intent searchIntent = new Intent(Shop.this, Shop.class);
+            startActivity(searchIntent);
+
+//        } else if (id == R.id.extras) {
+//            Intent searchIntent = new Intent(Shop.this, Extras.class);
+//            startActivity(searchIntent);
+
+        } else if (id == R.id.orders) {
+            Intent searchIntent = new Intent(Shop.this, OrderStatus.class);
+            startActivity(searchIntent);
+
+//        } else if (id == R.id.cart) {
+//            Intent searchIntent = new Intent(Shop.this, Cart.class);
+//            startActivity(searchIntent);
+
+        } else if (id == R.id.log_out) {
+
+            //Delete Remember user & password
+            Paper.book().destroy();
+
+            //Logout
+            Intent searchIntent = new Intent(Shop.this, SignIn.class);
+            searchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(searchIntent);
+
+//        } else if (id == R.id.main) {
+//            Intent searchIntent = new Intent(Shop.this, Home.class);
+//            startActivity(searchIntent);
+//
+//        } else if (id == R.id.support) {
+//            Intent searchIntent = new Intent(Shop.this, Support.class);
+//            startActivity(searchIntent);
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
